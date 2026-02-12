@@ -32,6 +32,7 @@ export class Zammad2TokenAuthApi implements ICredentialType {
 			type: 'boolean',
 			description: 'Whether to connect even if SSL certificate validation is not possible',
 			default: false,
+			typeOptions: { password: true },
 		},
 	];
 

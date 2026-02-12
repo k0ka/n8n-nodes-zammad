@@ -43,7 +43,7 @@ export const userDescription: INodeProperties[] = [
 				name: 'Get Self',
 				value: 'getSelf',
 				description: 'Retrieve currently logged-in user',
-				action: 'Get currently logged-in user',
+				action: 'Get currently logged in user',
 			},
 			{
 				name: 'Update',

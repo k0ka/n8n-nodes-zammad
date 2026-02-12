@@ -1,15 +1,15 @@
 {
 	"name": "n8n-nodes-zammad",
 	"version": "0.1.0",
-	"description": "",
+	"description": "Extended zammad integration derived from base nodes",
 	"license": "MIT",
 	"homepage": "",
 	"keywords": [
 		"n8n-community-node-package"
 	],
 	"author": {
-		"name": "",
-		"email": ""
+		"name": "Konstantin Babushkin",
+		"email": "admin@idwrx.com"
 	},
 	"repository": {
 		"type": "git",
