@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-zammad",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Extended zammad integration derived from base nodes",
 	"license": "MIT",
 	"homepage": "",
@@ -13,7 +13,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/k0ka/n8n-nodes-zammad.git"
+		"url": "git+https://github.com/k0ka/n8n-nodes-zammad.git"
 	},
 	"scripts": {
 		"build": "n8n-node build",
