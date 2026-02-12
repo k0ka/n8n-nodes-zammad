@@ -147,62 +147,9 @@ export const ticketDescription: INodeProperties[] = [
 				name: 'articleDetails',
 				values: [
 					{
-						displayName: 'Subject',
-						name: 'subject',
-						type: 'string',
-						default: '',
-					},
-					{
-						displayName: 'Body',
-						name: 'body',
-						type: 'string',
-						default: '',
-					},
-					{
-						displayName: 'Visibility',
-						name: 'visibility',
-						type: 'options',
-						default: 'internal',
-						options: [
-							{
-								name: 'External',
-								value: 'external',
-								description: 'Visible to customers',
-							},
-							{
-								name: 'Internal',
-								value: 'internal',
-								description: 'Visible to help desk',
-							},
-						],
-					},
-					{
-						displayName: 'Sender',
-						name: 'sender',
-						type: 'options',
-						// https://docs.zammad.org/en/latest/api/ticket/articles.html
-						options: [
-							{
-								name: 'Agent',
-								value: 'Agent',
-							},
-							{
-								name: 'Customer',
-								value: 'Customer',
-							},
-							{
-								name: 'System',
-								value: 'System',
-								description: 'Only subject will be displayed in Zammad',
-							},
-						],
-						default: 'Agent',
-					},
-					{
 						displayName: 'Article Type',
 						name: 'type',
 						type: 'options',
-						// https://docs.zammad.org/en/latest/api/ticket/articles.html
 						options: [
 							{
 								name: 'Chat',
@@ -232,12 +179,63 @@ export const ticketDescription: INodeProperties[] = [
 						default: 'note',
 					},
 					{
+						displayName: 'Body',
+						name: 'body',
+						type: 'string',
+						default: '',
+					},
+					{
 						displayName: 'Reply To',
 						name: 'reply_to',
 						type: 'string',
 						default: '',
 					},
-				],
+					{
+						displayName: 'Sender',
+						name: 'sender',
+						type: 'options',
+						options: [
+							{
+								name: 'Agent',
+								value: 'Agent',
+							},
+							{
+								name: 'Customer',
+								value: 'Customer',
+							},
+							{
+								name: 'System',
+								value: 'System',
+								description: 'Only subject will be displayed in Zammad',
+							},
+					],
+						default: 'Agent',
+					},
+					{
+						displayName: 'Subject',
+						name: 'subject',
+						type: 'string',
+						default: '',
+					},
+					{
+						displayName: 'Visibility',
+						name: 'visibility',
+						type: 'options',
+						default: 'internal',
+						options: [
+							{
+								name: 'External',
+								value: 'external',
+								description: 'Visible to customers',
+							},
+							{
+								name: 'Internal',
+								value: 'internal',
+								description: 'Visible to help desk',
+							},
+					]
+					},
+			],
 			},
 		],
 	},

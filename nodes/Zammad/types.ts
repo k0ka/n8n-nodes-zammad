@@ -1,5 +1,6 @@
 import type { IDataObject } from 'n8n-workflow';
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export declare namespace Zammad {
 	export type Resource = 'group' | 'organization' | 'ticket' | 'user';
 

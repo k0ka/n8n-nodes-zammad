@@ -1,3 +1,4 @@
+export * from './ArticleDescription';
 export * from './GroupDescription';
 export * from './OrganizationDescription';
 export * from './TicketDescription';

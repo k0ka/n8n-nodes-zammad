@@ -12,6 +12,7 @@ import type {
 import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
 import {
+	articleDescription,
 	groupDescription,
 	organizationDescription,
 	ticketDescription,
@@ -43,7 +44,7 @@ export class Zammad implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Zammad2',
 		name: 'zammad',
-		icon: 'file:zammad.svg',
+		icon: 'file:../../icons/zammad.svg',
 		group: ['input'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -100,6 +101,10 @@ export class Zammad implements INodeType {
 				type: 'options',
 				options: [
 					{
+						name: 'Article',
+						value: 'article',
+					},
+					{
 						name: 'Group',
 						value: 'group',
 					},
@@ -119,6 +124,7 @@ export class Zammad implements INodeType {
 				default: 'user',
 			},
 
+			...articleDescription,
 			...groupDescription,
 			...organizationDescription,
 			...ticketDescription,
@@ -741,6 +747,38 @@ export class Zammad implements INodeType {
 							{},
 							{},
 							limit,
+						);
+					}
+				} else if (resource === 'article') {
+					// **********************************************************************
+					//                                  article
+					// **********************************************************************
+
+					if (operation === 'get') {
+						// ----------------------------------
+						//            article:get
+						// ----------------------------------
+
+						// https://docs.zammad.org/en/latest/api/ticket/articles.html#list-specific-article
+
+						const id = this.getNodeParameter('id', i) as string;
+
+						responseData = await zammadApiRequest.call(this, 'GET', `/ticket_articles/${id}`);
+					} else if (operation === 'getAttachment') {
+						// ----------------------------------
+						//            article:getAttachment
+						// ----------------------------------
+
+						// https://docs.zammad.org/en/latest/api/ticket/articles.html#receive-attachments
+
+						const ticketId = this.getNodeParameter('ticketId', i) as string;
+						const articleId = this.getNodeParameter('articleId', i) as string;
+						const attachmentId = this.getNodeParameter('attachmentId', i) as string;
+
+						responseData = await zammadApiRequest.call(
+							this,
+							'GET',
+							`/ticket_attachment/${ticketId}/${articleId}/${attachmentId}`,
 						);
 					}
 				}
