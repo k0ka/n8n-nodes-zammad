@@ -38,6 +38,8 @@ export declare namespace Zammad {
 
 	export type GroupUpdateFields = UserUpdateFields;
 
+	export type ArticleUpdateFields = IDataObject & CustomFieldsUi;
+
 	export type User = {
 		id: number;
 		login: string;

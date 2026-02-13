@@ -748,6 +748,34 @@ export class Zammad implements INodeType {
 							{},
 							limit,
 						);
+					} else if (operation === 'update') {
+						// ----------------------------------
+						//            ticket:update
+						// ----------------------------------
+
+						// https://docs.zammad.org/en/latest/api/ticket/index.html#update
+
+						const id = this.getNodeParameter('id', i) as string;
+						const body: IDataObject = {};
+
+						const updateFields = this.getNodeParameter(
+							'updateFields',
+							i,
+						) as ZammadTypes.ArticleUpdateFields;
+
+						if (!Object.keys(updateFields).length) {
+							throwOnEmptyUpdate.call(this, resource);
+						}
+
+						const { customFieldsUi, ...rest } = updateFields;
+
+						customFieldsUi?.customFieldPairs.forEach((pair) => {
+							body[pair.name] = pair.value;
+						});
+
+						Object.assign(body, rest);
+
+						responseData = await zammadApiRequest.call(this, 'PUT', `/tickets/${id}`, body);
 					}
 				} else if (resource === 'article') {
 					// **********************************************************************

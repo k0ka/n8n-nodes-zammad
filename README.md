@@ -6,5 +6,6 @@ See the [base node documentation](https://docs.n8n.io/integrations/builtin/app-n
 
 ## Added
 
+* update ticket
 * get article by article id
 * get article attachment 

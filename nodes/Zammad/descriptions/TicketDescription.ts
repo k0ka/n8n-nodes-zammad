@@ -39,6 +39,12 @@ export const ticketDescription: INodeProperties[] = [
 				description: 'Retrieve many tickets',
 				action: 'Get many tickets',
 			},
+			{
+				name: 'Update',
+				value: 'update',
+				description: 'Update a ticket',
+				action: 'Update a ticket',
+			},
 		],
 		default: 'create',
 	},
@@ -208,7 +214,7 @@ export const ticketDescription: INodeProperties[] = [
 								value: 'System',
 								description: 'Only subject will be displayed in Zammad',
 							},
-					],
+						],
 						default: 'Agent',
 					},
 					{
@@ -233,9 +239,9 @@ export const ticketDescription: INodeProperties[] = [
 								value: 'internal',
 								description: 'Visible to help desk',
 							},
-					]
+						],
 					},
-			],
+				],
 			},
 		],
 	},
@@ -319,5 +325,77 @@ export const ticketDescription: INodeProperties[] = [
 				returnAll: [false],
 			},
 		},
+	},
+	{
+		displayName: 'Ticket ID',
+		name: 'id',
+		type: 'string',
+		description:
+			'Ticket to update. Specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['ticket'],
+				operation: ['update'],
+			},
+		},
+	},
+	{
+		displayName: 'Update Fields',
+		name: 'updateFields',
+		type: 'collection',
+		displayOptions: {
+			show: {
+				resource: ['ticket'],
+				operation: ['update'],
+			},
+		},
+		default: {},
+		placeholder: 'Add Field',
+		options: [
+			{
+				displayName: 'State',
+				name: 'state',
+				type: 'string',
+				default: '',
+			},
+			{
+				displayName: 'Custom Fields',
+				name: 'customFieldsUi',
+				type: 'fixedCollection',
+				default: {},
+				placeholder: 'Add Field',
+				typeOptions: {
+					multipleValues: true,
+				},
+				options: [
+					{
+						name: 'customFieldPairs',
+						displayName: 'Custom Field',
+						values: [
+							{
+								displayName: 'Field Name or ID',
+								name: 'name',
+								type: 'options',
+								typeOptions: {
+									loadOptionsMethod: 'loadTicketCustomFields',
+								},
+								default: '',
+								description:
+									'Name of the custom field to set. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+							},
+							{
+								displayName: 'Value',
+								name: 'value',
+								type: 'string',
+								default: '',
+								description: 'Value to set on the custom field',
+							},
+						],
+					},
+				],
+			},
+		],
 	},
 ];
