@@ -9,3 +9,4 @@ See the [base node documentation](https://docs.n8n.io/integrations/builtin/app-n
 * update ticket
 * get article by article id
 * get article attachment 
+* create article

@@ -808,6 +808,23 @@ export class Zammad implements INodeType {
 							'GET',
 							`/ticket_attachment/${ticketId}/${articleId}/${attachmentId}`,
 						);
+					} else if (operation === 'create') {
+						// ----------------------------------
+						//            article:create
+						// ----------------------------------
+
+						// https://docs.zammad.org/en/latest/api/ticket/articles.html#create
+
+						const body = {
+							ticket_id: this.getNodeParameter('ticketId', i) as string,
+							subject: this.getNodeParameter('subject', i) as string,
+							body: this.getNodeParameter('body', i) as string,
+							type: this.getNodeParameter('type', i) as string,
+							sender: this.getNodeParameter('sender', i) as string,
+							internal: this.getNodeParameter('visibility', i) === 'internal',
+						};
+
+						responseData = await zammadApiRequest.call(this, 'POST', '/ticket_articles', body);
 					}
 				}
 
