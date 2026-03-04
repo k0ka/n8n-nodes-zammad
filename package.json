@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-zammad",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"description": "Extended zammad integration derived from base nodes",
 	"license": "MIT",
 	"homepage": "",
