@@ -21,7 +21,7 @@
 		"dev": "n8n-node dev",
 		"lint": "n8n-node lint",
 		"lint:fix": "n8n-node lint --fix",
-		"prepublishOnly": "pnpm build",
+		"prepublishOnly": "n8n-node build",
 		"release:major": "npm version major && git push --follow-tags",
 		"release:minor": "npm version minor && git push --follow-tags",
 		"release:patch": "npm version patch && git push --follow-tags"
