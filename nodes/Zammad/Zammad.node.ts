@@ -819,6 +819,7 @@ export class Zammad implements INodeType {
 							ticket_id: this.getNodeParameter('ticketId', i) as string,
 							subject: this.getNodeParameter('subject', i) as string,
 							body: this.getNodeParameter('body', i) as string,
+							content_type: this.getNodeParameter('contentType', i) as string,
 							type: this.getNodeParameter('type', i) as string,
 							sender: this.getNodeParameter('sender', i) as string,
 							internal: this.getNodeParameter('visibility', i) === 'internal',

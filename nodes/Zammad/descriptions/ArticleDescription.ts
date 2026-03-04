@@ -118,6 +118,28 @@ export const articleDescription: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Content Type',
+		name: 'contentType',
+		type: 'options',
+		options: [
+			{
+				name: 'Html',
+				value: 'text/html',
+			},
+			{
+				name: 'Text',
+				value: 'text/plain',
+			},
+		],
+		default: 'text/plain',
+		displayOptions: {
+			show: {
+				resource: ['article'],
+				operation: ['create'],
+			},
+		},
+	},
+	{
 		displayName: 'Sender',
 		name: 'sender',
 		type: 'options',
