@@ -24,7 +24,8 @@
 		"prepublishOnly": "n8n-node build",
 		"release:major": "npm version major && git push --follow-tags",
 		"release:minor": "npm version minor && git push --follow-tags",
-		"release:patch": "npm version patch && git push --follow-tags"
+		"release:patch": "npm version patch && git push --follow-tags",
+		"version": "auto-changelog -p && git add CHANGELOG.md"
 	},
 	"files": [
 		"dist"
@@ -43,6 +44,7 @@
 	"devDependencies": {
 		"@n8n/node-cli": "*",
 		"@types/lodash": "^4.17.23",
+		"auto-changelog": "^2.5.0",
 		"eslint": "9.32.0",
 		"prettier": "3.6.2",
 		"release-it": "^19.0.4",
